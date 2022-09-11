@@ -1,7 +1,7 @@
-
+import NavigationPage from './Navigation/NavigationPage';
 function App() {
   return (
-    <h1>Hello</h1>
+    <NavigationPage/>
   );
 }
 
