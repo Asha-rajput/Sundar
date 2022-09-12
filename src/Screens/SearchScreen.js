@@ -1,6 +1,17 @@
 import React, { useState } from "react";
 import SundarHeader from "../component/Header";
 import { InputGroupText, InputGroup, Input, Row, Col } from "reactstrap";
+const btnStyle = {
+  backgroundColor: "red",
+  flex: 1,
+  height: "80%",
+  width: "80%",
+  margin: "auto",
+  marginTop: "20px",
+  borderRadius: "5px",
+  textAlign: "center",
+  fontWeight: "bold",
+};
 
 const SearchScreen = () => {
   console.log(" Hello !SearchScreen ..");
@@ -37,89 +48,19 @@ const SearchScreen = () => {
           }}
         >
           <Col>
-            <div
-              style={{
-                backgroundColor: "red",
-                flex: 1,
-                height: "80%",
-                width: "80%",
-                margin: "auto",
-                marginTop: "20px",
-                borderRadius: "5px",
-                textAlign: "center",
-                fontWeight: "bold",
-              }}
-            >
-              WEB SHOW
-            </div>
+            <div style={btnStyle}>WEB SHOW</div>
           </Col>
           <Col>
-            <div
-              style={{
-                backgroundColor: "red",
-                flex: 1,
-                height: "80%",
-                width: "80%",
-                margin: "auto",
-                marginTop: "20px",
-                borderRadius: "5px",
-                textAlign: "center",
-                fontWeight: "bold",
-              }}
-            >
-              MOVIES
-            </div>
+            <div style={btnStyle}>MOVIES</div>
           </Col>
           <Col>
-            <div
-              style={{
-                backgroundColor: "red",
-                flex: 1,
-                height: "80%",
-                width: "80%",
-                margin: "auto",
-                marginTop: "20px",
-                borderRadius: "5px",
-                textAlign: "center",
-                fontWeight: "bold",
-              }}
-            >
-              SHORT FILMS
-            </div>
+            <div style={btnStyle}>SHORT FILMS</div>
           </Col>
           <Col>
-            <div
-              style={{
-                backgroundColor: "red",
-                flex: 1,
-                height: "80%",
-                width: "80%",
-                margin: "auto",
-                marginTop: "20px",
-                borderRadius: "5px",
-                textAlign: "center",
-                fontWeight: "bold",
-              }}
-            >
-              MUSIC
-            </div>
+            <div style={btnStyle}>MUSIC</div>
           </Col>
           <Col>
-            <div
-              style={{
-                backgroundColor: "red",
-                flex: 1,
-                height: "80%",
-                width: "80%",
-                margin: "auto",
-                marginTop: "20px",
-                borderRadius: "5px",
-                textAlign: "center",
-                fontWeight: "bold",
-              }}
-            >
-              LIVE TV
-            </div>
+            <div style={btnStyle}>LIVE TV</div>
           </Col>
         </Row>
       </div>

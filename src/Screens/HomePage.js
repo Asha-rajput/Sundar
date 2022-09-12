@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+
+import Card from "../component/Card";
 import SundarHeader from "../component/Header";
 import Slider from "../component/Slider";
+import SliderImage from "../component/SliderImage";
 import { getAllType } from "../services/api";
 
 const Home = () => {
@@ -9,31 +12,25 @@ const Home = () => {
 
   useEffect(() => {
     getAllType().then((data) => {
-      console.log("data", data);
       setData(data);
     });
   }, []);
+
   // const fetchData = async () => {
   //   const res = await getAllType();
   //   console.log("res", res);
   // };
   console.log("data!!!!", data);
 
+  
+
   return (
-    <>
+    <Card>
       <SundarHeader />
       <Slider />
-      <h1>hello ! welcome in home</h1>
-      {data?.results?.map((item) => {
-        return (
-          <img
-            src={"http://image.tmdb.org/t/p/w500/" + item.poster_path}
-            alt={item.altText}
-            style={{ height: "100px", width: "100px" }}
-          />
-        );
-      })}
-    </>
+      <h1 style={{ color: "white" ,fontSize:'25px'}}>Movies!!</h1>
+      <SliderImage data={data}/>
+    </Card>
   );
 };
 

@@ -1,36 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   Carousel,
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
   CarouselCaption,
-} from 'reactstrap';
-
-const items = [
-  {
-    src: 'https://picsum.photos/id/123/1200/400',
-    altText: 'Slide 1',
-    caption: 'Slide 1',
-    key: 1,
-  },
-  {
-    src: 'https://picsum.photos/id/456/1200/400',
-    altText: 'Slide 2',
-    caption: 'Slide 2',
-    key: 2,
-  },
-  {
-    src: 'https://picsum.photos/id/678/1200/400',
-    altText: 'Slide 3',
-    caption: 'Slide 3',
-    key: 3,
-  },
-];
+} from "reactstrap";
+import { Movies } from "../services/api";
 
 function Slider() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    Movies().then((items) => {
+      setItems(items?.results);
+    });
+  }, []);
+
+  console.log("slider data", items);
 
   const next = () => {
     if (animating) return;
@@ -54,24 +43,23 @@ function Slider() {
       <CarouselItem
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
-        key={item.src}
+        key={item.id}
       >
-        <img src={item.src} alt={item.altText} />
+        <img
+          src={"http://image.tmdb.org/t/p/w500/" + item.poster_path}
+          alt={item.original_title}
+          style={{ width: "100%", height: "400px" }}
+        />
         <CarouselCaption
-          captionText={item.caption}
-          captionHeader={item.caption}
+          captionText={item.original_title}
+          captionHeader={item.title}
         />
       </CarouselItem>
     );
   });
 
   return (
-    <Carousel
-      activeIndex={activeIndex}
-      next={next}
-      previous={previous}
-      
-    >
+    <Carousel activeIndex={activeIndex} next={next} previous={previous}>
       <CarouselIndicators
         items={items}
         activeIndex={activeIndex}

@@ -8,6 +8,16 @@ export const getAllType = async () => {
   const data = await res.json();
   console.log(data);
   return data;
-  //   .then((res) => res.json().then((data) => console.log(data)));
 };
-// export default getAllType;
+
+export const Movies = async () => {
+  const res = await fetch(
+    "https://api.themoviedb.org/3/trending/movie/week?api_key=40b7d7ad3c8844f77205bb922bab6d0f",
+    {
+      method: "GET",
+    }
+  );
+  const data = await res.json();
+  console.log(data);
+  return data;
+};
